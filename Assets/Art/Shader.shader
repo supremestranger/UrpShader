@@ -84,12 +84,12 @@ Shader "Custom/Lambert" {
                 lighting += Lambert(normal, light.direction.xyz, light.color.rgb * (light.distanceAttenuation * light.shadowAttenuation)) * _Color.rgb;
                 
 #if defined(DYNAMICLIGHTMAP_ON)
-                half3 lm = SampleLightmap(i.staticLightmapUv, i.dynamicLightmapUv, i.normal);
+                lighting += SampleLightmap(i.staticLightmapUv, i.dynamicLightmapUv, i.normal);
 #else
-                half3 lm = SampleLightmap(i.staticLightmapUv, 0, i.normal);
+                lighting += SampleLightmap(i.staticLightmapUv, 0, i.normal);
 #endif
 
-                half4 res = half4((lighting + lm) * diffuse, 1);
+                half4 res = half4(lighting * diffuse, 1);
                 res.a = 1;
                 return res;
             }
