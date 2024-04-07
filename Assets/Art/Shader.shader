@@ -90,7 +90,6 @@ Shader "Custom/Lambert" {
 #endif
 
                 half4 res = half4(lighting * diffuse, 1);
-                res.a = 1;
                 return res;
             }
             ENDHLSL
