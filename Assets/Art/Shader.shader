@@ -86,7 +86,7 @@ Shader "Custom/Lambert" {
 #if defined(DYNAMICLIGHTMAP_ON)
                 half3 lm = SampleLightmap(i.staticLightmapUv, i.dynamicLightmapUv, i.normal);
 #else
-                half3 lm = SAMPLE_GI(i.staticLightmapUv, 0, i.normal);
+                half3 lm = SampleLightmap(i.staticLightmapUv, 0, i.normal);
 #endif
 
                 half4 res = half4((lighting + lm) * diffuse, 1);
