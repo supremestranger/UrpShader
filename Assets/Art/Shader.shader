@@ -81,7 +81,7 @@ Shader "Custom/Lambert" {
                 half3 lighting = Lambert(normal, dirLightDirection, _MainLightColor.rgb);
 
                 Light light = GetAdditionalLight(0, i.worldPos);
-                lighting += Lambert(normal, light.direction.xyz, light.color.rgb * (light.distanceAttenuation * light.shadowAttenuation)) * _Color.rgb;
+                lighting += Lambert(normal, light.direction.xyz, light.color.rgb * (light.distanceAttenuation * light.shadowAttenuation));
                 
 #if defined(DYNAMICLIGHTMAP_ON)
                 lighting += SampleLightmap(i.staticLightmapUv, i.dynamicLightmapUv, i.normal);
