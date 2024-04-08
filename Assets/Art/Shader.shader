@@ -31,20 +31,20 @@ Shader "Custom/Lambert" {
 
             struct appdata {
                 float4 vertex : POSITION;
-                float3 normal : NORMAL;
-                float2 uv : TEXCOORD0;
-                float2 staticLightmapUv : TEXCOORD1;
-                float2 dynamicLightmapUv : TEXCOORD2;
+                half3 normal : NORMAL;
+                half2 uv : TEXCOORD0;
+                half2 staticLightmapUv : TEXCOORD1;
+                half2 dynamicLightmapUv : TEXCOORD2;
             }; 
 
             struct v2f {
                 float4 vertex : SV_POSITION;
-                float3 normal : NORMAL;
-                float2 uv : TEXCOORD0;
-                float2 staticLightmapUv : TEXCOORD1;
+                half3 normal : NORMAL;
+                half2 uv : TEXCOORD0;
+                half2 staticLightmapUv : TEXCOORD1;
                 float3 worldPos : TEXCOORD2;
 #ifdef DYNAMICLIGHTMAP_ON
-                float2 dynamicLightmapUv : TEXCOORD3;
+                half2 dynamicLightmapUv : TEXCOORD3;
 #endif
             };
 
